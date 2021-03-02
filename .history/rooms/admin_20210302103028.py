@@ -16,21 +16,15 @@ class ItemAdmin(admin.ModelAdmin):
     pass
 
 
-class PhotoInline(admin.TabularInline):
-    model = models.Photo
-
-
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
 
     """ Room Admin Definition """
 
-    inlines = (PhotoInline,)
-
     fieldsets = (
         (
             "Basic Info",
-            {"fields": ("name", "description", "country", "city", "address", "price")},
+            {"fields": ("name", "description", "country", "address", "price")},
         ),
         ("Times", {"fields": ("check_in", "check_out", "instant_book")}),
         ("Spaces", {"fields": ("guests", "beds", "bedrooms", "baths")}),
@@ -83,8 +77,6 @@ class RoomAdmin(admin.ModelAdmin):
 
     def count_photos(self, obj):
         return obj.photos.count()
-
-    count_photos.short_description = "Photo Count"
 
 
 @admin.register(models.Photo)

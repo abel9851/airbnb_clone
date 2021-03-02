@@ -93,7 +93,7 @@ class Room(core_models.TimeStampedModel):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.city = self.city.title()
+        self.city = "potato"
         super().save(*args, **kwargs)
 
     def total_rating(self):

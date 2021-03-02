@@ -32,7 +32,7 @@ class User(AbstractUser):
 
     CURRENCY_CHOICES = (
         (CURRENCY_USD, "USD"),
-        (CURRENCY_KRW, "KRW"),
+        (CURRENCY_USD, "KRW"),
         (CURRENCY_JPY, "JPY"),
     )
 
