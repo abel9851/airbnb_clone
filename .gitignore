@@ -129,3 +129,5 @@ dmypy.json
 uploads/
 
 .history/
+node_modules/
+
