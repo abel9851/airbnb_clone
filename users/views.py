@@ -213,7 +213,7 @@ class UserProfileView(DetailView):
     context_object_name = "user_obj"
 
 
-class UpdateProfileView(mixins.LoggedInonlyView, SuccessMessageMixin, UpdateView):
+class UpdateProfileView(mixins.LoggedInOnlyView, SuccessMessageMixin, UpdateView):
 
     model = models.User
     template_name = "users/update-profile.html"
@@ -238,7 +238,7 @@ class UpdateProfileView(mixins.LoggedInonlyView, SuccessMessageMixin, UpdateView
 
 
 class UpdatePasswordView(
-    mixins.LoggedInonlyView,
+    mixins.LoggedInOnlyView,
     mixins.EmailLoginOnlyView,
     SuccessMessageMixin,
     PasswordChangeView,
@@ -258,3 +258,8 @@ class UpdatePasswordView(
 
     def get_success_url(self):
         return self.request.user.get_absolute_url()
+
+def become_host(request):
+    pass
+
+def become_
