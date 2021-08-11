@@ -19,7 +19,7 @@
     <h3>Results</h3>
 
     {% for room in rooms %}
-        <h3>{{room.name}}</h3>
+        <a href="{% url 'rooms:detail' room.pk %}"><span class="text-black w-11/12 block truncate font-bold">{{room.name}}</span></h3>
     {% endfor %}
 
 {% endblock content %}
