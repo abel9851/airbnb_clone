@@ -80,13 +80,13 @@ class SearchView(View):
             if superhost is True:
                 filter_args["host__superhost"] = True
 
+            qs = models.Room.objects.filter(**filter_args)
+
             for amenity in amenities:
-                filter_args["amenities"] = amenity
+                qs = models.Room.filter(amenities=amenity)
 
             for facility in facilities:
-                filter_args["facilities"] = facility
-
-            qs = models.Room.objects.filter(**filter_args).order_by("-created")
+                qs = models.Room.filter(facilities=facility).order_by("-created")
 
             paginator = Paginator(qs, 10, orphans=5)
 
