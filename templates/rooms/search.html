@@ -12,7 +12,7 @@
     <h2>Search!</h2>
 
     <form method="get" action="{% url "rooms:search" %}">
-        <div class="container ml-10 w-96">{{form.as_p}}</div>
+        <div class="lg:w-96 ml-10">{{form.as_p}}</div>
         <button class="m-2 text-lg px-2 pb-1 bg-red-400 rounded-lg text-white">Search</button>
     </form>
 

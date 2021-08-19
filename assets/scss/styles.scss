@@ -23,7 +23,7 @@
 }
 
 .btn-link {
-  @apply text-center py-3 rounded-lg font-light text-lg w-full text-white bg-red-500;
+  @apply text-center rounded-lg py-3 font-light text-lg w-full text-white bg-red-500;
 }
 
 input,
@@ -45,6 +45,10 @@ select {
 }
 
 form {
+  input {
+    @apply py-5;
+  }
+
   .input {
     @apply mb-3 w-full;
     &.has_error {
