@@ -133,6 +133,24 @@ class EditRoomView(user_mixins.LoggedInOnlyView, UpdateView):
         return room
 
 
+@login_required
+def delete_room(request, room_pk):
+
+    user = request.user
+    try:
+        room = models.Room.objects.get(pk=room_pk)
+
+        if user.pk != room.host.pk:
+            messages.error(request, "You can't delete this room")
+        else:
+            messages.success(request, "Room Deleted")
+            room.delete()
+        return redirect(reverse("core:home"))
+    except models.Room.DoesNotExist:
+        messages.error(request, "Room is not existed")
+        return redirect(reverse("core:home"))
+
+
 class RoomPhotosView(user_mixins.LoggedInOnlyView, DetailView):
 
     model = models.Room

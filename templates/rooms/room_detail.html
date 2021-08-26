@@ -96,7 +96,8 @@
     </div>
     <div class='w-1/3'>
         {% if room.host == user %}
-            <a href="{% url 'rooms:edit' room.pk %}" class="btn-link block">Edit Room</a>
+            <a href="{% url 'rooms:edit' room.pk %}" class="btn-link block mb-5 bg-green-500">Edit Room</a>
+            <a href="{% url 'rooms:delete' room.pk %}" class="btn-link block" onclick="return confirm('Do you want to Delete?')">Delete Room</a>
         {% else %}
             {% if not request.session.is_hosting %}
                 {% for calendar in room.get_calendars %}
@@ -131,5 +132,9 @@
         {% endif %}
     </div>
 </div>
+
+<script>
+    
+</script>
 
 {% endblock %}
