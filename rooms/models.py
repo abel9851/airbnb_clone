@@ -129,8 +129,8 @@ class Room(core_models.TimeStampedModel):
         now = timezone.now()
         this_year = now.year
         this_month = now.month
+        this_month_cal = Calendar(this_year, this_month)
         if this_month == 12:
             this_year += 1
-        this_month_cal = Calendar(this_year, this_month)
         next_month_cal = Calendar(this_year, this_month + 1 if this_month != 12 else 1)
         return [this_month_cal, next_month_cal]
